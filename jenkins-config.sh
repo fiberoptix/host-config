@@ -33,15 +33,6 @@ echo -e "cat this file for further instructions"
 # Manage Nodes > New Node > "slave" & Perm Agent > OK
 # Remote Root > /jenkins/workspace
 
-# Setup salve node for jenkins
+# Setup slave node for jenkins
 
-# create ssh keys for trusted connect
-ssh-keygen -f id_rsa -t rsa -N ''
-mv ~/id* .ssh/
-
-#setup a file or variable for target hosts that will get a public.key
-touch ~/rsa_hosts.txt
-for ip in `cat ~/rsa_hosts.txt`; do
-    ssh-copy-id -i ~/.ssh/id_rsa.pub $ip
-done
 
