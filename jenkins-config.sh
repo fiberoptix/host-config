@@ -19,3 +19,9 @@ sudo apt-get update
 yes | sudo apt-get install jenkins
 
 # AWS Console HOST > Security groups > launch-wizard-1 > Inbound >> add 8080 and 22
+
+echo ""
+echo -e "Use a browser to login to Jenkins and install plugins @ >> hostname:8080"
+echo ""
+echo -e "Your Admin password is..."
+echo -e $(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)
