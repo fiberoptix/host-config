@@ -10,7 +10,7 @@
 # More Jenkins help: https://jenkins.io/doc/book/installing/#debianubuntu
 
 sudo apt-get update
-#yes | sudo apt-get install default-jdk
+#yes | sudo apt-get install default-jdk - Java 10 does not work with Jenkins 2, needs 8
 yes | sudo apt install openjdk-8-jdk
 
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
@@ -25,3 +25,23 @@ echo -e "Use a browser to login to Jenkins and install plugins @ >> hostname:808
 echo ""
 echo -e "Your Admin password is..."
 echo -e $(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)
+echo ""
+echo -e "cat this file for further instructions"
+
+# Manage Jenkins > Configure Global Security > Agents : JNLP Random
+
+# Manage Nodes > New Node > "slave" & Perm Agent > OK
+# Remote Root > /jenkins/workspace
+
+# Setup salve node for jenkins
+
+# create ssh keys for trusted connect
+ssh-keygen -f id_rsa -t rsa -N ''
+mv ~/id* .ssh/
+
+#setup a file or variable for target hosts that will get a public.key
+touch ~/rsa_hosts.txt
+for ip in `cat ~/rsa_hosts.txt`; do
+    ssh-copy-id -i ~/.ssh/id_rsa.pub $ip
+done
+

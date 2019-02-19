@@ -25,3 +25,5 @@ yes | sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 #Check to see if it's running
 sudo docker run hello-world
+
+# Install Selenium on the Docker Host
