@@ -13,7 +13,7 @@ yes | sudo apt install openjdk-8-jdk
 # yes | sudo apt-get install default-jdk
 
 # create ssh keys for trusted connect
-mkdir .ssh; ssh-keygen -f .ssh/id_rsa -t rsa -N ''
+mkdir .ssh; sleep 3; ssh-keygen -f .ssh/id_rsa -t rsa -N ''
 
 #setup a file or variable for target hosts that will get a public.key
 #touch ~/rsa_hosts.txt
