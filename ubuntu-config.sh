@@ -18,5 +18,5 @@ mkdir .ssh; sleep 3; ssh-keygen -f .ssh/id_rsa -t rsa -N ''
 #setup a file or variable for target hosts that will get a public.key
 #touch ~/rsa_hosts.txt
 #for ip in `cat ~/rsa_hosts.txt`; do
-#    yes yes | ssh-copy-id -i ~/.ssh/id_rsa.pub $ip
+#    yes yes | sudo ssh-copy-id -i ~/.ssh/id_rsa.pub $ip
 #done
