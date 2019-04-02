@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+#How to install TeamCity on Linux...
+# https://confluence.jetbrains.com/display/TCD18/Installing+and+Configuring+the+TeamCity+Server#InstallingandConfiguringtheTeamCityServer-installingWithTomcat
+
 #connect to aws instance
 ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ubuntu@ec2-3-82-63-89.compute-1.amazonaws.com
 
