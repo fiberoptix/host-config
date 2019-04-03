@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 #connect to aws instance
-#ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ubuntu@ec2-3-90-27-112.compute-1.amazonaws.com
+#ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ubuntu@ec2-18-212-53-200.compute-1.amazonaws.com
 
 #----------------------------- Configure the Host
 # Change root password
-#sudo passwd root
+sudo passwd root
 
 #Change the hostname
 sudo hostnamectl set-hostname TeamCityAgent1
