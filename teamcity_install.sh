@@ -4,13 +4,13 @@
 # https://confluence.jetbrains.com/display/TCD18/Installing+and+Configuring+the+TeamCity+Server#InstallingandConfiguringtheTeamCityServer-installingWithTomcat
 
 #connect to aws instance
-ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ubuntu@ec2-3-90-27-112.compute-1.amazonaws.com
+# ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ubuntu@ec2-3-89-137-112.compute-1.amazonaws.com
 
 #remember to add incoming access for port 8111
 
 #----------------------------- Configure the Host
 # Change root password
-yes Powerme!1 | sudo passwd root
+yes 'Powerme!1' | sudo passwd root
 
 #Change the hostname
 sudo hostnamectl set-hostname TeamCity
@@ -32,6 +32,9 @@ sudo echo JAVA_HOME=/usr/lib/jvm/java-8-oracle >> /etc/environment
 sudo echo JRE_HOME=/usr/lib/jvm/java-8-oracle/jre >> /etc/environment
 #sudo -u root chmod 755 /etc/environment
 
+# install unzip
+sudo apt install unzip
+
 #----------------------------- Download and Install
 
 cd ~; mkdir app; chmod -R 775 app
@@ -48,7 +51,7 @@ chmod -R 775 /home/ubuntu/app/TeamCity/data
 /home/ubuntu/app/TeamCity/bin/runAll.sh start
 
 #Tail TC Server Log
-tail -f /home/ubuntu/app/TeamCity/logs/teamcity-server.log
+# tail -f /home/ubuntu/app/TeamCity/logs/teamcity-server.log
 
 # check TeamCity is running
 ps -ef | grep TeamCity
@@ -56,8 +59,7 @@ ps -ef | grep TeamCity
 # Check to see port 8111 is open
 sudo netstat -tulpn | grep LISTEN
 
-#Check log
-tail -f ~/app/TeamCity/logs/teamcity-server.log
-
-#------------------------------ Install TeamCity.agent
-wget http://ec2-3-90-27-112.compute-1.amazonaws.com:8111/update/buildAgent.zip
+# Add cronjob
+echo '@reboot /home/ubuntu/app/TeamCity/bin/runAll.sh start' > ~/crontab
+crontab crontab
+crontab -l

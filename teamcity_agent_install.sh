@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 #connect to aws instance
-#ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ubuntu@ec2-18-212-53-200.compute-1.amazonaws.com
+# ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ubuntu@ec2-34-203-244-57.compute-1.amazonaws.com
 
 # Get this File and run it
 # wget https://raw.githubusercontent.com/fiberoptix/host-config/master/teamcity_agent_install.sh
 
 #----------------------------- Configure the Host
 # Change root password
-sudo passwd root
+yes 'Powerme!1' | sudo passwd root
 
 #Change the hostname
 sudo hostnamectl set-hostname TeamCityAgent1
@@ -22,7 +22,7 @@ sudo apt-get install oracle-java8-installer
 sudo apt-get install oracle-java8-set-default
 
 #confirm it
-#java -version
+java -version
 
 # Add Java Paths
 sudo -u root chmod 777 /etc/environment
@@ -45,12 +45,14 @@ chmod -R 775 /home/ubuntu/app/TeamCity/data
 wget http://ec2-3-90-27-112.compute-1.amazonaws.com:8111/update/buildAgent.zip
 unzip buildAgent*
 
-cd conf
+cd /home/ubuntu/app/TeamCity/conf
 cp buildAgent.dist.properties buildAgent.properties
 
 echo "Add the TC Server address to the conf/buildAgent.properties file"
 echo "Example: http://ec2-3-90-27-112.compute-1.amazonaws.com:8111"
 
 #------------------------------ Startup and Checkout
-#Start TeamCity
-#/home/ubuntu/app/TeamCity/bin/agent.sh start
+# Add cronjob
+echo '@reboot /home/ubuntu/app/TeamCity/bin/agent.sh start' > ~/crontab
+crontab crontab
+crontab -l
