@@ -30,7 +30,7 @@ java -version
 sudo -u root chmod 777 /etc/environment
 sudo echo JAVA_HOME=/usr/lib/jvm/java-8-oracle >> /etc/environment
 sudo echo JRE_HOME=/usr/lib/jvm/java-8-oracle/jre >> /etc/environment
-#sudo -u root chmod 755 /etc/environment
+sudo -u root chmod 755 /etc/environment
 
 # install unzip
 sudo apt install unzip
@@ -43,12 +43,12 @@ wget https://download.jetbrains.com/teamcity/TeamCity-2018.2.3.tar.gz
 tar -xvf TeamCity-*
 
 #create Teamcity Data dir
-mkdir /home/ubuntu/app/TeamCity/data
-chmod -R 775 /home/ubuntu/app/TeamCity/data
+mkdir ~/app/TeamCity/data
+chmod -R 775 ~/app/TeamCity/data
 
 #------------------------------ Startup and Checkout
 #Start TeamCity
-/home/ubuntu/app/TeamCity/bin/runAll.sh start
+~/app/TeamCity/bin/runAll.sh start
 
 #Tail TC Server Log
 # tail -f /home/ubuntu/app/TeamCity/logs/teamcity-server.log
@@ -60,6 +60,7 @@ ps -ef | grep TeamCity
 sudo netstat -tulpn | grep LISTEN
 
 # Add cronjob
+cd ~
 echo '@reboot /home/ubuntu/app/TeamCity/bin/runAll.sh start' > ~/crontab
 crontab crontab
 crontab -l

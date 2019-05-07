@@ -39,20 +39,22 @@ cd ~; mkdir app; chmod -R 775 app
 cd app
 mkdir TeamCity; chmod -R 775 TeamCity
 cd TeamCity
-mkdir /home/ubuntu/app/TeamCity/data;
-chmod -R 775 /home/ubuntu/app/TeamCity/data
+mkdir ~/app/TeamCity/data;
+chmod -R 775 ~/app/TeamCity/data
 
 wget http://ec2-3-90-27-112.compute-1.amazonaws.com:8111/update/buildAgent.zip
 unzip buildAgent*
 
-cd /home/ubuntu/app/TeamCity/conf
+cd ~/app/TeamCity/conf
 cp buildAgent.dist.properties buildAgent.properties
 
+echo ""
 echo "Add the TC Server address to the conf/buildAgent.properties file"
 echo "Example: http://ec2-3-90-27-112.compute-1.amazonaws.com:8111"
-
+echo ""
 #------------------------------ Startup and Checkout
 # Add cronjob
+cd ~
 echo '@reboot /home/ubuntu/app/TeamCity/bin/agent.sh start' > ~/crontab
 crontab crontab
 crontab -l
