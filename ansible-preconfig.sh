@@ -32,11 +32,23 @@ echo 'AllowUsers root ansible' >> /etc/ssh/sshd_config
 #Restart SSH
 systemctl restart sshd
 
-#Install Enterprise extensions
-yum install wget -y
-
+# RHEL Install Enterprise extensions
+sudo yum install wget -y
 cd /etc/yum.repos.d
-wget https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
-rpm -ivh epel-release-7-11.noarch.rpm
 
-yum update --nobest -y
+sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum update --nobest -y
+
+sudo yum -y install ansible
+
+# wget https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
+# rpm -ivh epel-release-7-11.noarch.rpm
+
+# UBUNTU
+# sudo apt update
+# sudo apt install software-properties-common
+# sudo apt-add-repository --yes --update ppa:ansible/ansible
+# sudo apt install ansible
+
+
+

@@ -22,7 +22,9 @@ touch .ssh/authorized_keys
 chmod 600 .ssh/authorized_keys
 
 # create ssh keys for trusted connect  don't add a pass phrase or it will prompt
-ssh-keygen -f .ssh/id_rsa -t rsa -N ''
+mkdir .ssh
+sudo ssh-keygen -f .ssh/id_rsa -t rsa -N ''
+
 
 #setup a file or variable for target hosts that will get a public.key
 #touch ~/rsa_hosts.txt
