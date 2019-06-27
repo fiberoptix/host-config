@@ -6,9 +6,11 @@
 # Change root password
 #yes 'newpassword' | sudo passwd root
 
+sudo su
+
 #Change the hostname
 HOSTNAME=Ansible-$1
-hostnamectl set-hostname Ansible-MASTER
+hostnamectl set-hostname Ansible-$HOSTNAME
 
 #Or use this and pass it a hostname when you run the script
 #hostnamectl set-hostname Ansible-$1
@@ -29,7 +31,7 @@ sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
 # Allow users to ssh connect
 echo '#' >> /etc/ssh/sshd_config
-echo 'AllowUsers root ansible' >> /etc/ssh/sshd_config
+echo 'AllowUsers ec2-user root ansible' >> /etc/ssh/sshd_config
 
 #Restart SSH
 systemctl restart sshd

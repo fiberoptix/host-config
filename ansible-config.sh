@@ -17,7 +17,7 @@ sudo ssh-keygen -f .ssh/id_rsa -t rsa -N ''
 
 #Exchange RSA keys from Master to Nodes
 # You're going to have to type in the password for all of these
-for host in 172.31.60.98 172.31.60.232 172.31.60.179; do
+for host in 172.31.51.162 172.31.52.238 172.31.50.57; do
 ssh-copy-id $host;
 done
 
