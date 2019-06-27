@@ -16,6 +16,8 @@ touch .ssh/authorized_keys
 chmod 600 .ssh/authorized_keys
 sudo ssh-keygen -f .ssh/id_rsa -t rsa -N ''
 
+sudo chmod 750 id_rsa
+
 #Exchange RSA keys from Master to Nodes
 # You're going to have to type in the password for all of these
 for host in 172.31.58.61 172.31.48.204 172.31.60.203; do

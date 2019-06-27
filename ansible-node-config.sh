@@ -20,7 +20,8 @@ hostnamectl set-hostname $NODENAME
 useradd -m -p passtemp ansible
 mkdir /home/ansible
 mkdir /home/ansible/.ssh
-chmod -R 777 /home/ansible
+chown -R ansible:ansible /home/ansible
+chmod -R 770 /home/ansible
 .
 sleep 1
 yes Secret2019 | passwd ansible
