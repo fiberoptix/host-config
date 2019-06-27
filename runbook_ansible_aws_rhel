@@ -40,9 +40,7 @@ Prepare Instances
 Configure Master
 
 - Connect
-Master: 172.31.51.121 - 3.220.206.153
 ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ec2-user@ec2-3-212-19-168.compute-1.amazonaws.com
-ssh ansible@ec2-user@ec2-3-212-19-168.compute-1.amazonaws.com
 
 - Run these commands
 # Set root password
@@ -50,10 +48,10 @@ sudo su
 yes Secret2019 | passwd root
 
 # Get and run MASTER setup script
-curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-preconfig.sh > ansible-preconfig.sh
-chmod +x ansible-preconfig.sh
+curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-master-config.sh > ansible-master-config.sh
+chmod +x ansible-master-config.sh
 sleep 1
-./ansible-preconfig.sh MASTER
+./ansible-master-config.sh MASTER
 echo -e "DONE ..... " `date`
 exit
 .
@@ -62,26 +60,23 @@ exit
 
 Configure Nodes
 
-- Connect
-Node1
+- Connect NODE 1
 ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ec2-user@ec2-3-219-177-84.compute-1.amazonaws.com
-ssh ansible@ec2-user@ec2-3-219-177-84.compute-1.amazonaws.com
 ****************************Run these commands
 # Set root password
 sudo su
 yes Secret2019 | passwd root
 
 # Get and run MASTER setup script
-curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-preconfig.sh > ansible-preconfig.sh
+curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-node-config.sh > ansible-node-config.sh
 sleep 1
-chmod +x ansible-preconfig.sh
-./ansible-preconfig.sh NODE-1
+chmod +x ansible-node-config.sh
+./ansible-node-config.sh 1
 echo -e "DONE ..... " `date`
 exit
 .
 
-- Connect
-Node2
+- Connect NODE 2
 ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ec2-user@ec2-52-1-222-61.compute-1.amazonaws.com
 ssh anisble@ec2-user@ec2-52-1-222-61.compute-1.amazonaws.com
 ****************************Run these commands
@@ -90,16 +85,15 @@ sudo su
 yes Secret2019 | passwd root
 
 # Get and run MASTER setup script
-curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-preconfig.sh > ansible-preconfig.sh
+curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-node-config.sh > ansible-node-config.sh
 sleep 1
-chmod +x ansible-preconfig.sh
-./ansible-preconfig.sh NODE-2
+chmod +x ansible-node-config.sh
+./ansible-node-config.sh 2
 echo -e "DONE ..... " `date`
 exit
 .
 
-- Connect
-Node3
+- Connect NODE 3
 ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ec2-user@ec2-52-203-192-55.compute-1.amazonaws.com
 ssh ansible@ec2-user@ec2-52-203-192-55.compute-1.amazonaws.com
 ****************************Run these commands
@@ -108,10 +102,27 @@ sudo su
 yes Secret2019 | passwd root
 
 # Get and run MASTER setup script
-curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-preconfig.sh > ansible-preconfig.sh
+curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-node-config.sh > ansible-node-config.sh
 sleep 1
-chmod +x ansible-preconfig.sh
-./ansible-preconfig.sh NODE-3
+chmod +x ansible-node-config.sh
+./ansible-node-config.sh 3
+echo -e "DONE ..... " `date`
+exit
+.
+
+*****************************************
+
+Install Ansible on Master
+
+- Connect MASTER ( as ansible)
+ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ansible@ec2-3-212-19-168.compute-1.amazonaws.com
+
+- Run these commands
+# Get and run MASTER install script
+curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-master-install.sh > ansible-master-install.sh
+chmod +x ansible-master-install.sh
+sleep 1
+./ansible-master-install.sh.sh
 echo -e "DONE ..... " `date`
 exit
 .

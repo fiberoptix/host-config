@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# DO NOT USE - deprecated
+#v1.79
 
 # Run this script as root on all hosts
 # sudo su - root
@@ -9,8 +9,7 @@
 #yes 'newpassword' | sudo passwd root
 
 #Change the hostname
-HOSTNAME=Ansible-$1
-hostnamectl set-hostname Ansible-$HOSTNAME
+hostnamectl set-hostname Ansible-MASTER
 
 #Or use this and pass it a hostname when you run the script
 #hostnamectl set-hostname Ansible-$1
@@ -26,8 +25,8 @@ yes Secret2019 | passwd ec2-user
 echo 'ansible        ALL=(ALL)       NOPASSWD: ALL' >> /etc/sudoers
 
 # Enable SSH connections
-# sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.BAK
+# sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
 # Allow users to ssh connect

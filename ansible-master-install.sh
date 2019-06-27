@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# DO NOT USE - deprecated
+#v1.79
 
 #----------- IMPORTANT!!! ------------
 # NEED to run this script as ansible user on MASTER
