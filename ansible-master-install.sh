@@ -7,7 +7,7 @@
 
 
 # create ssh keys for trusted connect  don't add a pass phrase or it will prompt
-cd ~
+cd /home/ansible
 mkdir .ssh
 sleep 3
 chmod 700 .ssh
@@ -28,4 +28,3 @@ pip3 install ansible --user
 #Check out python and ansible
 sudo yum list installed | grep python
 ansible --version
-.

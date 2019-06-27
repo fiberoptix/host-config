@@ -18,6 +18,10 @@ hostnamectl set-hostname $NODENAME
 # Add Ansible user on all hosts
 #useradd -m -p $pass $username
 useradd -m -p passtemp ansible
+mkdir /home/ansible
+mkdir /home/ansible/.ssh
+chmod -R 777 /home/ansible
+.
 sleep 1
 yes Secret2019 | passwd ansible
 yes Secret2019 | passwd ec2-user
