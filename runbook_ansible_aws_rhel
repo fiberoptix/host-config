@@ -117,12 +117,12 @@ Install Ansible on Master
 - Connect MASTER ( as ansible)
 ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ansible@ec2-3-212-19-168.compute-1.amazonaws.com
 
-- Run these commands
+- Run these commands ********* AS ANSIBLE USER ********
 # Get and run MASTER install script
+cd /home/ansible
 curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-master-install.sh > ansible-master-install.sh
 chmod +x ansible-master-install.sh
 sleep 1
-./ansible-master-install.sh.sh
+./ansible-master-install.sh
 echo -e "DONE ..... " `date`
-exit
 .
