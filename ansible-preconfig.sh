@@ -6,8 +6,6 @@
 # Change root password
 #yes 'newpassword' | sudo passwd root
 
-sudo su
-
 #Change the hostname
 HOSTNAME=Ansible-$1
 hostnamectl set-hostname Ansible-$HOSTNAME
