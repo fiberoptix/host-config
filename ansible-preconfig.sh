@@ -23,7 +23,8 @@ yes Secret2019 | passwd ansible
 echo 'ansible        ALL=(ALL)       NOPASSWD: ALL' >> /etc/sudoers
 
 # Enable SSH connections
-#sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+# sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.BAK
 sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
 # Allow users to ssh connect
