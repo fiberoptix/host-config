@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+#v1.79
 
 #----------- IMPORTANT!!! ------------
 # NEED to run this script as ansible user on MASTER
