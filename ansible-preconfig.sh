@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#v1.78
+
 # Run this script as root on all hosts
 # sudo su - root
 
