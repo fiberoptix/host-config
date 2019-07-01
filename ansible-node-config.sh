@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-#v1.79
+#v 2.0
 
-# Run this script as root on all hosts
+# Run this script as root on Ansible Nodes
+
 # sudo su - root
-
-# Change root password
-#yes 'newpassword' | sudo passwd root
 
 #Change the hostname
 NODENAME=Ansible-Node-$1
@@ -18,14 +16,13 @@ hostnamectl set-hostname $NODENAME
 # Add Ansible user on all hosts
 #useradd -m -p $pass $username
 useradd -m -p passtemp ansible
-mkdir /home/ansible
-mkdir /home/ansible/.ssh
-chown -R ansible:ansible /home/ansible
-chmod -R 770 /home/ansible
-.
 sleep 1
 yes Secret2019 | passwd ansible
 yes Secret2019 | passwd ec2-user
+
+mkdir /home/ansible
+chown -R ansible:ansible /home/ansible
+chmod -R 755 /home/ansible
 
 #Make ansible a sudoer
 echo 'ansible        ALL=(ALL)       NOPASSWD: ALL' >> /etc/sudoers

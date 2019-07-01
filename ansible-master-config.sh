@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 
-#v1.79
+#v 2.0
 
-# Run this script as root on all hosts
+# Run this script as root on Ansible MASTER
+
 # sudo su - root
-
-# Change root password
-#yes 'newpassword' | sudo passwd root
 
 #Change the hostname
 hostnamectl set-hostname Ansible-MASTER
 
 #Or use this and pass it a hostname when you run the script
 #hostnamectl set-hostname Ansible-$1
+
 
 # Add Ansible user on all hosts
 #useradd -m -p $pass $username
