@@ -21,8 +21,9 @@ yes Secret2019 | passwd ansible
 yes Secret2019 | passwd ec2-user
 
 # Setup home directory and add aster install script
+rm -Rf /home/ansible
 mkdir /home/ansible
-curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-master-install.sh > /home/ansible/ansible-node-install.sh
+curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-node-install.sh > /home/ansible/ansible-node-install.sh
 chown -R ansible:ansible /home/ansible
 chmod -R 755 /home/ansible
 
@@ -31,7 +32,7 @@ echo 'ansible        ALL=(ALL)       NOPASSWD: ALL' >> /etc/sudoers
 
 # Enable SSH connections
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.BAK
-sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sed -i 's/#PasswodAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
 
 # Allow users to ssh connect

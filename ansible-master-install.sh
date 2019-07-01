@@ -31,6 +31,9 @@ sudo chown -R ansible:ansible /home/ansible/.ssh
 
 #Exchange RSA keys from Master to Nodes
 # You're going to have to type in the password for all of these
+# consider using this sshpass solution in the future
+# https://serverfault.com/questions/306541/automating-ssh-copy-id
+#
 for host in 172.31.58.61 172.31.48.204 172.31.60.203; do
 ssh-copy-id -i /home/ansible/.ssh/id_rsa.pub $host;
 done

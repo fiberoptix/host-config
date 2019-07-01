@@ -23,7 +23,8 @@ yes Secret2019 | passwd ec2-user
 #Make ansible a sudoer
 echo 'ansible        ALL=(ALL)       NOPASSWD: ALL' >> /etc/sudoers
 
-# Setup home directory and add aster install script
+# Setup home directory and add Master install script
+#rm -Rf /home/ansible
 mkdir /home/ansible
 curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-master-install.sh > /home/ansible/ansible-master-install.sh
 chown -R ansible:ansible /home/ansible
