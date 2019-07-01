@@ -20,7 +20,9 @@ sleep 1
 yes Secret2019 | passwd ansible
 yes Secret2019 | passwd ec2-user
 
+# Setup home directory and add aster install script
 mkdir /home/ansible
+curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-master-install.sh > /home/ansible/ansible-node-install.sh
 chown -R ansible:ansible /home/ansible
 chmod -R 755 /home/ansible
 
