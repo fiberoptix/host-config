@@ -112,17 +112,40 @@ exit
 
 *****************************************
 
+Install Ansible (SSH Keys) on Nodes
+
+FROM Ansible MASTER :
+
+- Connect MASTER ( then switch to ansible )
+ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ec2-user@ec2-3-212-19-168.compute-1.amazonaws.com
+sudo su - ansible
+
+# Node 1
+ssh ansible@172.31.58.61
+./ansible-install-node.sh
+exit
+
+# Node 2
+ssh ansible@172.31.48.204
+./ansible-install-node.sh
+exit
+
+# Node 3
+ssh ansible@172.31.60.203
+./ansible-install-node.sh
+exit
+
+*****************************************
+
 Install Ansible on Master
 
-- Connect MASTER ( as ansible)
-ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ansible@ec2-3-212-19-168.compute-1.amazonaws.com
+- Connect MASTER ( then switch to ansible )
+ssh -i "/Users/agamache/Dropbox/AWS/AG-KEYPAIR-2019.pem" ec2-user@ec2-3-212-19-168.compute-1.amazonaws.com
+sudo su - ansible
 
 - Run these commands ********* AS ANSIBLE USER ********
-# Get and run MASTER install script
+# Run MASTER install script
 cd /home/ansible
-curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-master-install.sh > ansible-master-install.sh
-chmod +x ansible-master-install.sh
-sleep 1
 ./ansible-master-install.sh
 echo -e "DONE ..... " `date`
 .
