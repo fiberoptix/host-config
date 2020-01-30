@@ -100,7 +100,7 @@ ssh ansible@ec2-user@ec2-52-203-192-55.compute-1.amazonaws.com
 # Set root password
 sudo su
 yes Secret2019 | passwd root
-
+#
 # Get and run MASTER setup script
 curl https://raw.githubusercontent.com/fiberoptix/host-config/master/ansible-node-config.sh > ansible-node-config.sh
 sleep 1

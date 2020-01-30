@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#
 # Get the install scripts
 git clone https://github.com/fiberoptix/host-config
 
