@@ -14,7 +14,7 @@ yes 'Powerme!1' | sudo passwd root
 
 #Change the hostname
 sudo hostnamectl set-hostname TeamCity
-#
+
 #install Java 8
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update

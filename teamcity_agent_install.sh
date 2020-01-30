@@ -9,7 +9,7 @@
 #----------------------------- Configure the Host
 # Change root password
 yes 'Powerme!1' | sudo passwd root
-#
+
 #Change the hostname
 sudo hostnamectl set-hostname TeamCityAgent1
 

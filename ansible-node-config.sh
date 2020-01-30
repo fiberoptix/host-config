@@ -3,7 +3,7 @@
 #v 2.0
 
 # Run this script as root on Ansible Nodes
-
+#
 # sudo su - root
 
 #Change the hostname

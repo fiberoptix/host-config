@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+
 # Install Selenium on the Docker Host
 
 sudo apt-get update
