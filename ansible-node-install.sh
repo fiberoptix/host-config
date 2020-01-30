@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+
 # create ssh keys for trusted connect  don't add a pass phrase or it will prompt
 cd /home/ansible
 rm -R .ssh
