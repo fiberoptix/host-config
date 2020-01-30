@@ -30,7 +30,7 @@ sudo ssh-keygen -f .ssh/id_rsa -t rsa -N ''
 #touch ~/rsa_hosts.txt
 #for ip in `cat ~/rsa_hosts.txt`; do
 
-# copy the publickeyt o the remote host
+# copy the publickey to the remote host
 #    yes yes | sudo ssh-copy-id -i ~/.ssh/id_rsa.pub ubuntu@$ip
 
 # test access - should conenct without a password
