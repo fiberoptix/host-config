@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+# 1.1
 # This package installation will:
 # Setup Jenkins as a daemon launched on start. See /etc/init.d/jenkins for more details.
 # Create a ‘jenkins’ user to run this service.
