@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# 1.1
 # Install Docker CE 1
 
 # You can install Docker CE in different ways, depending on your needs:
